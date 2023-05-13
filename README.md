@@ -26,19 +26,27 @@ class ContaBancaria {
     saldo = saldo + valor;
   }
     
-  public static void depositar() {
+  public static void depositar()throws IOException,InterruptedException {
     
       Scanner teclado = new Scanner(System.in);   
       
       double valor;
-      
+	  
+      topo();
+	  System.out.print("________________________________\n\n");
+	  System.out.print("seu salario atual e de " + saldo + " \n\n");
+	   System.out.print("________________________________\n\n");
       System.out.print("Qual o valor que voce deseja depositar?\n\n");
-      
+      System.out.print("\n R$");
+	  
+	  
       valor = teclado.nextDouble();
       
       reforcoSaldo(valor);  
 
       menu(); 	  
+	  
+	
       
   }
   
@@ -46,13 +54,18 @@ class ContaBancaria {
     saldo = saldo - valor;
     }
 
-	public static double sacar() {
+	public static double sacar() throws IOException,InterruptedException{
 		 
 	Scanner teclado = new Scanner(System.in);  
 	  
     double valor;
-	
+	topo();
+	System.out.print("________________________________\n\n");
+	  System.out.print("seu salario atual e de " + saldo + " \n\n");
+	   System.out.print("________________________________\n\n");
 	System.out.print("Qual o valor que voce deseja sacar?\n\n");
+	System.out.print("\n R$");
+	
 	
     valor = teclado.nextDouble();
 	  
@@ -71,10 +84,11 @@ class ContaBancaria {
     return saldo;
   } 
   
-  public static double exibirSaldo() {
-      
+  public static double exibirSaldo()throws IOException,InterruptedException {
+     topo();
+	 
     System.out.print(saldo);
-        
+    pressioneParaMenu();
     return saldo;
   }
   
@@ -83,23 +97,23 @@ class ContaBancaria {
 	Console console = new Console();
 	console.clear();
 	
-	System.out.println("_________________________________BANCO____________________________________\n\n");
-	System.out.println("___________________________________DO_____________________________________\n\n");
-	System.out.println("________________________________FENOMENO_________________________________\n\n");
+	System.out.print("________________________________$-BANCO-$_______________________________\n\n");
+	System.out.print("_________________________________$-DO-$____________________________________\n\n");
+	System.out.print("______________________________$-FENOMENO-$_______________________________\n\n");
 	
 	}
-	
 	public static void pressioneParaMenu() throws IOException,InterruptedException{
-		System.out.print ("precione enter para voltar ao menu principal");
+		System.out.print ("\n precione enter para voltar ao menu principal");
 	System.in.read();
 	
+	
 	}
-	public static void menu() {
+	public static void menu()throws IOException,InterruptedException {
     Scanner teclado = new Scanner(System.in);
 	
     int opcao;
 	
-   
+    topo();
     System.out.print("\n\n ola senhor. BEM VNDO ao banco do ronaldo fenomeno \n\n");
     System.out.print("------------------------\n\n");
     System.out.print("Por favor selecione uma opcao:\n");
@@ -144,7 +158,7 @@ class ContaBancaria {
   }
   
 
-	public static void main(String args[]){  
+	public static void main(String args[])throws IOException,InterruptedException{  
 
     saldo = 0;
 
